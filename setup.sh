@@ -7,8 +7,11 @@ mkdir -p /home/appuser/.fonts
 
 # Fix for TensorFlow compatibility
 pip install --upgrade pip
-pip install protobuf==3.20.3
+pip install --upgrade setuptools wheel
 
-# Install Urdu fonts if needed
-curl -L -o /home/appuser/.fonts/NotoNastaliqUrdu-Regular.ttf "https://github.com/notofonts/noto-fonts/raw/main/unhinted/variable-ttf/NotoNastaliqUrdu%5Bwght%5D.ttf"
-fc-cache -f -v
+# Install specific versions to avoid conflicts
+pip install protobuf==3.20.3
+pip install typing-extensions==4.5.0
+
+# Clear cache to avoid space issues
+pip cache purge
