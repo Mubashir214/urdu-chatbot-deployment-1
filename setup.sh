@@ -1,4 +1,12 @@
 #!/bin/bash
-apt-get update
-apt-get install -y fonts-noto fonts-noto-cjk
-pip install --upgrade pip
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Download NLTK data (if needed)
+python -c "import nltk; nltk.download('punkt', quiet=True)" || true
+
+# Create necessary directories
+mkdir -p .streamlit
+
+echo "✅ Urdu Chatbot setup completed successfully!"
